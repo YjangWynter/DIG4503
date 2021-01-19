@@ -1,0 +1,2 @@
+const yjang = require('./Yjang');
+

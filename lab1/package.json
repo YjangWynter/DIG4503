@@ -1,0 +1,25 @@
+{
+  "name": "dig4503",
+  "version": "1.0.0",
+  "description": "The npm file for this class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YjangWynter/DIG4503.git"
+  },
+  "keywords": [
+    "school"
+  ],
+  "author": "Yjang Wynter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YjangWynter/DIG4503/issues"
+  },
+  "homepage": "https://github.com/YjangWynter/DIG4503#readme",
+  "dependencies": {
+    "chalk": "^4.1.0"
+  }
+}
