@@ -28,7 +28,6 @@ async function print(poke){
     You found a ${chalk.white(mon.name)}! A ${chalk.magenta(mon.types)}-type pokemon\n
     Its abilities are ${chalk.yellowBright(JSON.stringify(mon.abilities.common))}.\n
     It is ${chalk.blue(mon.height)}ft tall and weighs ${chalk.green(mon.weight)}lbs.\n
-    It is ${chalk.blue(mon.height)}ft tall and weighs ${chalk.green(mon.weight)}lbs.\n
     Here is a picture: ${chalk.red(mon.picture)}
 
 
