@@ -1,5 +1,5 @@
 import React,{Component, useState} from 'react';
-import Pokemon from './pokemon'
+
 
 export default class PokeDex extends Component{
     constructor(props){
