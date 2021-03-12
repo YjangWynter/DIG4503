@@ -1,0 +1,16 @@
+{
+  "name":"part8",
+  "version":"1.0.0",
+  "description": "Week 9, Participation Activity #8. Lists anime I have, currently, and plan to watch",
+  "main":"index.js",
+  "author":"Yjang Wynter",
+  "license":"ISC",
+  "type":"module",
+  "scripts":{
+    "server": "nodemon index.js"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
