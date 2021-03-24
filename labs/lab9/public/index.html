@@ -55,7 +55,7 @@
                 return res.json();
             })
             .then((processed)=>{
-               report(processed, processed.name)
+               report(processed, processed.age)
             });
             
         }
@@ -64,17 +64,18 @@
             let age = document.querySelector("#age");
             fetch(`/ages/${age.value}`)
             .then((res)=>{
+                console.log(res)
                 return res.json();
             })
             .then((processed)=>{
-                report(processed, processed.age)
+                report(processed, processed.name)
             });
         }
         function createEmployee(event){
             event.preventDefault();
             let name = document.querySelector("#new_name");
             let age = document.querySelector("#new_age");
-            fetch(`/employees/add/${name.value}/${age.value}/`,{
+            fetch(`/employees/add/${name.value}/${age.value}`,{
                 'method':'post'
             }).then((res)=>{
                 res.json();
