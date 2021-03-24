@@ -8,7 +8,7 @@
   "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "server": "nodemon index.js"
   },
   "dependencies": {
     "abbrev": "^1.1.1",

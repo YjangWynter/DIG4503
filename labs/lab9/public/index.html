@@ -31,7 +31,7 @@
         .then((processed)=>{
             let reporting = document.getElementById("reporting");
             if (processed.error){
-                reporting.innerHTML = processed.error
+                reporting.innerHTML = processed.error;
             } else{
                 reporting.innerHTML = processed.age;
             }

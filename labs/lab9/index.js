@@ -20,6 +20,8 @@ App.get("/employees/:name", (req,res) => {
     res.json(result);
 });
 
+App.use("/", Express.static("public"));
+ 
 App.get("/ages/:number", (req,res) => {
     let result = {"error": "not found"};
     database.forEach((value)=>{
@@ -30,8 +32,16 @@ App.get("/ages/:number", (req,res) => {
     
     res.json(result);
 });
-App.use("/", Express.static("public"));
-   
+App.post("/employees/:name/:age",(req,res)=>{
+    let result = {
+    "name":req.params.name,
+    "score":parseInt(req.params.age)
+    };
+    database.push(result);
+
+    fs.writeFileSync("database.json", JSON.stringify(database), null,'\t');
+    res.JSON(result);
+}); 
 
 App.listen(port, () => {
     console.log('Server running');
