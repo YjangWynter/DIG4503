@@ -4,43 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitch NIgga</title>
+    <title>Lab 9</title>
 </head>
-<script>
-    function reportName(event){
-        event.preventDefault();
 
-        let name = document.getElementById("name");
-        fetch(`/employees/${name.value}`)
-        .then((res)=>res.json())
-        .then((processed)=>{
-            let reporting = document.getElementById("reporting");
-            if (processed.error){
-                reporting.innerHTML = processed.error
-            } else{
-                reporting.innerHTML = processed.name;
-            }
-        });
-        
-    }
-    function reportAge(event){
-        event.preventDefault();
-        let age = document.getElementById("age");
-        fetch(`/ages/${age.value}`)
-        .then((res)=>res.json())
-        .then((processed)=>{
-            let reporting = document.getElementById("reporting");
-            if (processed.error){
-                reporting.innerHTML = processed.error;
-            } else{
-                reporting.innerHTML = processed.age;
-            }
-        });
-    }
-    
-</script>
 <body>
-    <h1>Hello Bitch 🍑+🍆 = (⛲🌊💦+👨🏿💕👩🏿)</h1>
+    <h1>Lab 9</h1>
 
     <h1>Participant Log</h1>
     <form onsubmit="reportName(event)">
@@ -56,9 +24,64 @@
     </form>
     <br>
     <hr>
+    <h2>Add Employee</h2>
+    <form onsubmit="createEmployee(event)">
+        <label for="name">Name</label><br>
+        <input type="text" name="name" placeholder="Name" id="new_name">
+        <br>
+        <label for="age">Age</label><br>
+        <input type="number" min="1" max="125" name="age" placeholder="Age" id="new_age">
+        <button type="submit">Submit</button>
+    </form>
+    <hr>
     <h2>Reporting</h2>
-    <div class="reporting">
-           
-    </div>
+    <div class="reporting"></div>
+    <script>
+         function reportName(event){
+            event.preventDefault();
+    
+            let name = document.querySelector("#name");
+            fetch(`/employees/${name.value}`)
+            .then((res)=>{return res.json()})
+            .then((processed)=>{
+                let reporting = document.querySelector("#reporting");
+                if (processed.error){
+                    reporting.innerHTML = processed.error;
+                } else{
+                    reporting.innerHTML = processed.name;
+                }
+            });
+            
+        }
+        function reportAge(event){
+            event.preventDefault();
+            let age = document.querySelector("#age");
+            fetch(`/ages/${age.value}`)
+            .then((res)=>{
+                return res.json()
+            })
+            .then((processed)=>{
+                let reporting = document.querySelector("#reporting");
+                if (processed.error){
+                    reporting.innerHTML = processed.error;
+                } else{
+                    reporting.innerHTML = processed.age;
+                }
+            });
+        }
+        function createEmployee(event){
+            event.preventDefault();
+            let name = document.querySelector("#new_name");
+            let age = document.querySelector("#new_age");
+            fetch(`/${age.value}/${age.value}/`,{
+                'method':'post'
+            }).then((res)=>{
+                res.json();
+            }).then((processed)=>{
+                console.log(processed);
+            });
+        }
+        
+    </script>
 </body>
 </html>
