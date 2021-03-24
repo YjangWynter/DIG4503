@@ -30,26 +30,32 @@
         <input type="text" name="name" placeholder="Name" id="new_name">
         <br>
         <label for="age">Age</label><br>
-        <input type="number" min="1" max="125" name="age" placeholder="Age" id="new_age">
+        <input type="text" name="age" placeholder="Age" id="new_age">
         <button type="submit">Submit</button>
     </form>
     <hr>
     <h2>Reporting</h2>
-    <div class="reporting"></div>
+    <div id="reportingArea"></div>
     <script>
+        function report(obj, prop){
+            let reporting = document.querySelector("#reportingArea");
+            console.log(obj)
+                if (obj.error){
+                    reporting.innerHTML = obj.error;
+                } else{
+                    reporting.innerHTML = prop;
+            }
+        }
          function reportName(event){
             event.preventDefault();
     
             let name = document.querySelector("#name");
             fetch(`/employees/${name.value}`)
-            .then((res)=>{return res.json()})
+            .then((res)=>{
+                return res.json();
+            })
             .then((processed)=>{
-                let reporting = document.querySelector("#reporting");
-                if (processed.error){
-                    reporting.innerHTML = processed.error;
-                } else{
-                    reporting.innerHTML = processed.name;
-                }
+               report(processed, processed.name)
             });
             
         }
@@ -58,22 +64,17 @@
             let age = document.querySelector("#age");
             fetch(`/ages/${age.value}`)
             .then((res)=>{
-                return res.json()
+                return res.json();
             })
             .then((processed)=>{
-                let reporting = document.querySelector("#reporting");
-                if (processed.error){
-                    reporting.innerHTML = processed.error;
-                } else{
-                    reporting.innerHTML = processed.age;
-                }
+                report(processed, processed.age)
             });
         }
         function createEmployee(event){
             event.preventDefault();
             let name = document.querySelector("#new_name");
             let age = document.querySelector("#new_age");
-            fetch(`/${age.value}/${age.value}/`,{
+            fetch(`/employees/add/${name.value}/${age.value}/`,{
                 'method':'post'
             }).then((res)=>{
                 res.json();
@@ -81,6 +82,7 @@
                 console.log(processed);
             });
         }
+    
         
     </script>
 </body>
