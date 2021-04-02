@@ -5,6 +5,11 @@ export default class NameSearch extends Component{
     readName(event){
         
         event.preventDefault();
+        /* Expects obj and its age as arguments
+        Prints to the page inside the reportingArea 
+        either an error message or the age
+
+        */
         let report = (obj, prop) => {
             let reporting = document.querySelector("#reportingArea");
             console.log(obj)
@@ -14,8 +19,9 @@ export default class NameSearch extends Component{
                     reporting.innerHTML = prop;
             }
         }
-
+        //selects the value of the user's input for name
         let name = document.querySelector("#name");
+        // pulls  & finds name within `database` array
         fetch(`/employees/${name.value}`)
         .then((res)=>{
             return res.json();
@@ -23,9 +29,11 @@ export default class NameSearch extends Component{
         .then((processed)=>{
            report(processed, processed.age)
         });
+        //used to reset value for name input
         name.value = ""
         
     }
+    //Renders form to input the name
     render(){
         return(
             <div>

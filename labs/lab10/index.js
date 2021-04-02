@@ -1,15 +1,17 @@
 import Express from 'express';
 import fs from 'fs';
 import cors  from "cors";
-
 const App = Express();
+//found on localhost:3003
 const port = 3003;
 App.use(cors());
 
+//reads the contents of database and parses
+//into an array
 let fileContents = fs.readFileSync("database.json");
-
 let database = JSON.parse(fileContents);
 
+//uses data from build of create-react-app project in client
 App.use("/", Express.static("client/build"));
 
 App.get("/employees/:name", (req,res) => {
@@ -35,6 +37,7 @@ App.get("/ages/:number", (req,res) => {
     
     res.json(result);
 });
+//don;t know why this is not working right now
 App.post("/employees/add/:name/:age",(req,res)=>{
     let result = {
     "name":req.params.name,
