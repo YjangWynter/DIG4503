@@ -1,0 +1,16 @@
+{
+    "name": "wise-ox",
+    "version": "1.0.0",
+    "description": "A package which gives advice from a magic cow",
+    "main": "index.js",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "chalk": "^4.1.1",
+        "cowsay": "^1.4.0"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Yjang Wynter",
+    "license": "ISC"
+}
