@@ -46,19 +46,7 @@
                     reporting.innerHTML = prop;
             }
         }
-         function reportName(event){
-            event.preventDefault();
-    
-            let name = document.querySelector("#name");
-            fetch(`/employees/${name.value}`)
-            .then((res)=>{
-                return res.json();
-            })
-            .then((processed)=>{
-               report(processed, processed.age)
-            });
-            
-        }
+        
         function reportAge(event){
             event.preventDefault();
             let age = document.querySelector("#age");
